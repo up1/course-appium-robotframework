@@ -1,0 +1,5 @@
+*.apk
+.DS_Store
+*.html
+*.xml
+*.png
