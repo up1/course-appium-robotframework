@@ -37,5 +37,5 @@ Accept terms of service and private policy
 See page welcome to Piggipo Go
 	Wait Until Element Is Visible   id=com.android.permissioncontroller:id/permission_allow_button
 	Click Element    id=com.android.permissioncontroller:id/permission_allow_button
-	Wait Until Element Is Visible  id=com.neversitup.piggipogo:id/imvAds
+	Wait Until Element Is Visible  id=com.neversitup.piggipogo:id/imvAds2
 	Click Element    id=com.neversitup.piggipogo:id/imvAds
