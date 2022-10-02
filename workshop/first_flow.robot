@@ -3,9 +3,12 @@ Library   AppiumLibrary
 Suite Teardown   Close Application
 
 *** Variables ***
-${ANDROID_AUTOMATION_NAME}    UIAutomator2
-${ANDROID_APP}                ${CURDIR}/PiggipoGO_1.2.21.apk
-${ANDROID_PLATFORM_NAME}      Android
+${REMOTE_URL}   http://127.0.0.1:4723/wd/hub
+${ANDROID_PLATFORM_NAME}    Android
+${base}   /Users/somkiat/data/slide/appium/workshop/
+${app}    ${base}PiggipoGO_1.2.21.apk
+${appium:deviceName}    R58M36QKSJK
+${ANDROID_AUTOMATION_NAME}    UiAutomator2
 
 *** Test Cases ***
 Login Flow
@@ -16,9 +19,13 @@ Login Flow
 
 *** Keywords ***
 Open App
-	Open Application  http://127.0.0.1:4723/wd/hub  automationName=${ANDROID_AUTOMATION_NAME}
+	Open Application  http://127.0.0.1:4723/wd/hub  
+	...  automationName=${ANDROID_AUTOMATION_NAME}
     ...  platformName=${ANDROID_PLATFORM_NAME} 
-    ...  app=${ANDROID_APP}  appPackage=com.neversitup.piggipogo
+    ...  app=${app}  
+	...  appium:deviceName=${appium:deviceName}  
+	...  appPackage=com.neversitup.piggipogo
+	Wait Until Element Is Visible   xpath=//android.widget.ImageView
 
 Choose gmail account
 	Wait Until Element Is Visible  id=com.neversitup.piggipogo:id/signInButton
