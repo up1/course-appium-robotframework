@@ -15,4 +15,10 @@ Test case name
         ...    platformName=${platformName}  
         ...  app=${app}  deviceName=${deviceName}  
         ...  automationName=${automationName} 
+        
+        Wait For Element   key=email_key
+        Click Element  key=email_key
+        Input Text  key=email_key   demo@admin.com
+        Input Text  key=password_key   1234
+
         Sleep    5s  # Don't use
