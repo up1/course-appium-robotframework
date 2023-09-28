@@ -18,7 +18,20 @@ ${appium:connectHardwareKeyboard}    true
     เปิด app
     ตรวจสอบว่า ค่า counter เป็น 0 แล้วมีปุ่ม + และ - ด้วยนะ
 
+ตรวจสอบหน้าแรกตอนเปิด app มาใช้งาน
+    เปิด app
+    เพิ่มค่า 2 ครั้ง
+    ผลที่ได้มาค่า count = 2
+
 *** Keywords ***
+เพิ่มค่า 2 ครั้ง
+    Click Element    id=me.tsukanov.counter:id/incrementButton
+    Click Element    id=me.tsukanov.counter:id/incrementButton
+
+ผลที่ได้มาค่า count = 2
+    Wait Until Page Contains Element     id=me.tsukanov.counter:id/counterLabel
+    Element Should Contain Text   id=me.tsukanov.counter:id/counterLabel  2
+    
 ตรวจสอบว่า ค่า counter เป็น 0 แล้วมีปุ่ม + และ - ด้วยนะ
     Wait Until Page Contains Element     id=me.tsukanov.counter:id/counterLabel
     Element Should Contain Text   id=me.tsukanov.counter:id/counterLabel  0
