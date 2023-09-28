@@ -23,7 +23,31 @@ ${appium:connectHardwareKeyboard}    true
     เพิ่มค่า 2 ครั้ง
     ผลที่ได้มาค่า count = 2
 
+ทำการแก้ไขชื่อ app และค่าเริ่มต้น
+    [Tags]  testing
+    เปิด app
+    ทำการแก้ไขชื่อ app เป็น ทดสอบ และ ค่าเริ่มต้นเป็น 20
+    ตรวจสอบผลการทำงานในหน้าแรก
+
 *** Keywords ***
+ทำการแก้ไขชื่อ app เป็น ทดสอบ และ ค่าเริ่มต้นเป็น 20
+    Wait Until Page Contains Element     id=me.tsukanov.counter:id/menu_edit
+    Click Element    id=me.tsukanov.counter:id/menu_edit
+
+    Wait Until Page Contains Element     id=me.tsukanov.counter:id/edit_name
+    Element Should Be Enabled   id=me.tsukanov.counter:id/edit_name
+    Element Should Be Enabled   id=me.tsukanov.counter:id/edit_value
+    Clear Text    id=me.tsukanov.counter:id/edit_name
+    Input Text    id=me.tsukanov.counter:id/edit_name    ทดสอบ
+    Clear Text    id=me.tsukanov.counter:id/edit_value
+    Input Text    id=me.tsukanov.counter:id/edit_value    20
+    Sleep    5s
+    Click Element   id=android:id/button1
+
+ตรวจสอบผลการทำงานในหน้าแรก
+    Wait Until Page Contains Element     id=me.tsukanov.counter:id/counterLabel
+    Element Should Contain Text   id=me.tsukanov.counter:id/counterLabel  20
+
 เพิ่มค่า 2 ครั้ง
     Click Element    id=me.tsukanov.counter:id/incrementButton
     Click Element    id=me.tsukanov.counter:id/incrementButton
@@ -47,4 +71,3 @@ ${appium:connectHardwareKeyboard}    true
     ...  appium:newCommandTimeout=${appium:newCommandTimeout}  
     ...  appium:connectHardwareKeyboard=${appium:connectHardwareKeyboard}
     
-    Sleep    5s
