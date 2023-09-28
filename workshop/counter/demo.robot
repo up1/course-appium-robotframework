@@ -18,13 +18,13 @@ ${appium:connectHardwareKeyboard}    true
     เปิด app
     ตรวจสอบว่า ค่า counter เป็น 0 แล้วมีปุ่ม + และ - ด้วยนะ
 
-ตรวจสอบหน้าแรกตอนเปิด app มาใช้งาน
+ตรวจสอบหน้าแรกตอนเปิด app มาใช้งาน xxx
     เปิด app
     เพิ่มค่า 2 ครั้ง
     ผลที่ได้มาค่า count = 2
 
 ทำการแก้ไขชื่อ app และค่าเริ่มต้น
-    [Tags]  testing
+    [Tags]  testing  feature01  #robot -i testing demo.robot
     เปิด app
     ทำการแก้ไขชื่อ app เป็น ทดสอบ และ ค่าเริ่มต้นเป็น 20
     ตรวจสอบผลการทำงานในหน้าแรก
