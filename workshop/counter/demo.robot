@@ -22,6 +22,8 @@ ${appium:connectHardwareKeyboard}    true
 ตรวจสอบว่า ค่า counter เป็น 0 แล้วมีปุ่ม + และ - ด้วยนะ
     Wait Until Page Contains Element     id=me.tsukanov.counter:id/counterLabel
     Element Should Contain Text   id=me.tsukanov.counter:id/counterLabel  0
+    Element Should Be Visible    id=me.tsukanov.counter:id/incrementButton
+    Element Should Be Visible    id=me.tsukanov.counter:id/decrementButton
 
 เปิด app
     Open Application    ${REMOTE_URL}   platformName=${platformName}  
