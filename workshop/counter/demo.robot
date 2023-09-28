@@ -19,38 +19,41 @@ Suite Teardown  Close Application
     ทำการแก้ไขชื่อ app เป็น ทดสอบ และ ค่าเริ่มต้นเป็น 20
     ตรวจสอบผลการทำงานในหน้าแรก
 
+*** Variables ***
+${name}    me.tsukanov.counter 
+
 *** Keywords ***
 ทำการแก้ไขชื่อ app เป็น ทดสอบ และ ค่าเริ่มต้นเป็น 20
-    Wait Until Page Contains Element     id=me.tsukanov.counter:id/menu_edit
-    Click Element    id=me.tsukanov.counter:id/menu_edit
+    Wait Until Page Contains Element     id=${name}:id/menu_edit
+    Click Element    id=${name}:id/menu_edit
 
-    Wait Until Page Contains Element     id=me.tsukanov.counter:id/edit_name
-    Element Should Be Enabled   id=me.tsukanov.counter:id/edit_name
-    Element Should Be Enabled   id=me.tsukanov.counter:id/edit_value
-    Clear Text    id=me.tsukanov.counter:id/edit_name
-    Input Text    id=me.tsukanov.counter:id/edit_name    ทดสอบ
-    Clear Text    id=me.tsukanov.counter:id/edit_value
-    Input Text    id=me.tsukanov.counter:id/edit_value    20
+    Wait Until Page Contains Element     id=${name}:id/edit_name
+    Element Should Be Enabled   id=${name}:id/edit_name
+    Element Should Be Enabled   id=${name}:id/edit_value
+    Clear Text    id=${name}:id/edit_name
+    Input Text    id=${name}:id/edit_name    ทดสอบ
+    Clear Text    id=${name}:id/edit_value
+    Input Text    id=${name}:id/edit_value    20
     Sleep    5s
     Click Element   id=android:id/button1
 
 ตรวจสอบผลการทำงานในหน้าแรก
-    Wait Until Page Contains Element     id=me.tsukanov.counter:id/counterLabel
-    Element Should Contain Text   id=me.tsukanov.counter:id/counterLabel  20
+    Wait Until Page Contains Element     id=${name}:id/counterLabel
+    Element Should Contain Text   id=${name}:id/counterLabel  20
 
 เพิ่มค่า 2 ครั้ง
-    Click Element    id=me.tsukanov.counter:id/incrementButton
-    Click Element    id=me.tsukanov.counter:id/incrementButton
+    Click Element    id=${name}:id/incrementButton
+    Click Element    id=${name}:id/incrementButton
 
 ผลที่ได้มาค่า count = 2
-    Wait Until Page Contains Element     id=me.tsukanov.counter:id/counterLabel
-    Element Should Contain Text   id=me.tsukanov.counter:id/counterLabel  2
+    Wait Until Page Contains Element     id=${name}:id/counterLabel
+    Element Should Contain Text   id=${name}:id/counterLabel  2
     
 ตรวจสอบว่า ค่า counter เป็น 0 แล้วมีปุ่ม + และ - ด้วยนะ
-    Wait Until Page Contains Element     id=me.tsukanov.counter:id/counterLabel
-    Element Should Contain Text   id=me.tsukanov.counter:id/counterLabel  0
-    Element Should Be Visible    id=me.tsukanov.counter:id/incrementButton
-    Element Should Be Visible    id=me.tsukanov.counter:id/decrementButton
+    Wait Until Page Contains Element     id=${name}:id/counterLabel
+    Element Should Contain Text   id=${name}:id/counterLabel  0
+    Element Should Be Visible    id=${name}:id/incrementButton
+    Element Should Be Visible    id=${name}:id/decrementButton
 
 เปิด app
     Open Application    ${REMOTE_URL}   platformName=${platformName}  
