@@ -4,6 +4,10 @@
   * Appium Inspector 
 * [Robot framework](https://robotframework.org/)
   * [Appium Library](https://github.com/serhatbolsu/robotframework-appiumlibrary)
+* Appium testing
+  * Android app
+  * iOS app
+  * Flutter app 
  
 ## Outlines
 * Testing for Mobile testing
