@@ -28,7 +28,7 @@
 * Testing with Mobile app from Flutter  (Android and iOS)
   * Unit testing
   * Widget testing
-  * Integration testing with Robot framework + appium library
+  * Integration testing with appium-flutter-driver library
   * Workshop with Flutter
 * Integrate Automated test to CI/CD process
   * Build
